@@ -162,73 +162,96 @@
 
 
 
-<!-- Video carousel -->
+
+<style>
+.results-row {
+  display: flex;
+  gap: 1rem;           /* 三个视频间距，可按需调整 */
+}
+.results-row .item {
+  flex: 1;             /* 平分可用宽度 */
+  box-sizing: border-box;
+}
+.results-row video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+</style>
+
+<!-- 并排显示三个视频 -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
+      <h2 class="title is-3">Structural Interpretation &amp; Geobody Segmentation</h2>
+      <div class="results-row">
+        <div class="item">
+          <video autoplay controls muted loop>
+            <source src="static/video/F3Geobodies.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
+        <div class="item">
+          <video autoplay controls muted loop>
+            <source src="static/video/RomneyChannels.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
+        <div class="item">
+          <video autoplay controls muted loop>
+            <source src="static/video/BaiyunDeepFaults.mp4" type="video/mp4">
           </video>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End video carousel -->
 
 
+<!-- Video carousel 2-->
 
-<!-- Video carousel -->
+<style>
+.results-row {
+  display: flex;
+  gap: 1rem;           /* 三个视频间距，可按需调整 */
+}
+.results-row .item {
+  flex: 1;             /* 平分可用宽度 */
+  box-sizing: border-box;
+}
+.results-row video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+</style>
+
+<!-- 并排显示三个视频 -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
+      <h2 class="title is-3">Property Modeling</h2>
+      <div class="results-row">
+        <div class="item">
+          <video autoplay controls muted loop>
+            <source src="static/video/F3Gamma.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
+        <div class="item">
+          <video autoplay controls muted loop>
+            <source src="static/video/DelftImpedance.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
+        <div class="item">
+          <video autoplay controls muted loop>
+            <source src="static/video/PoseidonDTCO.mp4" type="video/mp4">
           </video>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 <!-- End video carousel -->
+
 
 
 
@@ -249,9 +272,6 @@
         <div class="content">
 
           <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
 
         </div>
