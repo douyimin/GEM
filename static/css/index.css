@@ -133,13 +133,5 @@ body {
   font-size: smaller;
 }
 
-.carousel .item {
-  display: none;
-}
-.carousel .item.is-active {
-  display: block;
-}
-
-
 
 
