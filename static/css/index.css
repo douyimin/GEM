@@ -133,19 +133,4 @@ body {
   font-size: smaller;
 }
 
-/* ==================================================== */
-/* 1. 默认隐藏所有 slide */
-.carousel .item {
-  display: none !important;
-}
-
-/* 2. 插件激活后的 slide */
-.carousel .item.is-active {
-  display: block !important;
-}
-
-/* 3. 兜底：如果还没来得及加 is-active，先让第一张显示 */
-.carousel .item:first-child {
-  display: block !important;
-}
 
