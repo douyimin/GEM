@@ -133,5 +133,15 @@ body {
   font-size: smaller;
 }
 
+/* ==================================================== */
+.carousel .item {
+  display: none;
+}
 
+.carousel .item.is-active {
+  display: block;
+}
 
+.carousel .item:first-child {
+  display: block;
+}
