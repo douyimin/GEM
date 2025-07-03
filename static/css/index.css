@@ -133,4 +133,18 @@ body {
   font-size: smaller;
 }
 
+/* 默认全部隐藏 */
+.carousel .item {
+  display: none !important;
+}
+
+/* 插件激活时显示当前 slide */
+.carousel .item.is-active {
+  display: block !important;
+}
+
+/* 兜底：初始化前先让第一张可见，防止空白 */
+.carousel .item:first-child {
+  display: block !important;
+}
 
