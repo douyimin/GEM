@@ -1,2 +1,2 @@
-# Code coming soon...
+# Code coming soon
 https://douyimin.github.io/GEM
