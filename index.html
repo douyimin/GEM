@@ -1,404 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriately -->
-  <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
-  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG"/>
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
-  <meta property="og:image" content="static/image/your_banner_image.png" />
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
-
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Geological Everything Model 3D</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
+  <meta name="theme-color" content="#101e2b">
+  <title>GEM 3D | Geological Everything Model</title>
+  <meta name="description" content="Geological Everything Model 3D: unified interactive inference through target-conditioned representations. Explore the manuscript, narrated demonstrations, and research results.">
+  <meta property="og:title" content="Geological Everything Model 3D">
+  <meta property="og:description" content="Unified Interactive Inference through Target-Conditioned Representations">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://douyimin.github.io/GEM/">
+  <meta property="og:image" content="https://douyimin.github.io/GEM/static/images/geobody1.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://douyimin.github.io/GEM/">
+  <link rel="icon" href="static/images/favicon.ico">
+  <link rel="stylesheet" href="static/css/gem.css">
+  <script src="static/js/gem.js" defer></script>
 </head>
 <body>
-
-  <!-- Header -->
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Geological Everything Model 3D</h1>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                Yimin Dou<sup>1</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://cig.ustc.edu.cn/main.htm" target="_blank">Xinming Wu</a><sup>*,1</sup>,
-              </span>
-              <span class="author-block">
-                Nathan L Bangs<sup>2</sup>,
-              </span>
-              <span class="author-block">
-                Harpreet Singh Sethi<sup>3</sup>,
-              </span>
-              <span class="author-block">
-                Jintao Li<sup>1</sup>,
-              </span>
-              <span class="author-block">
-                Hang Gao<sup>1</sup>,
-              </span>
-              <span class="author-block">
-                Zhixiang Guo<sup>1</sup>
-              </span>
-            </div>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                1. University of Science and Technology of China, School of Earth and Space Sciences, Computational Interpretation Group (CIG)
-              </span><br>
-              <span class="author-block">
-                2. University of Texas at Austin, UT Institute for Geophysics
-              </span><br>
-              <span class="author-block">
-                3. NVIDIA
-              </span><br>
-              <span class="author-block">
-                * Corresponding author: xinmwu@ustc.edu.cn
-              </span>
-            </div>
-            <div class="publication-links">
-              <span class="link-block">
-                <a href="https://github.com/douyimin/GEM" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fab fa-github"></i></span>
-                  <span>Code</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2507.00419" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="ai ai-arxiv"></i></span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Teaser -->
-  <section class="hero teaser">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <img src="static/images/over_view.png" alt="Teaser Image" style="width: 100%; height: auto;">
-        <h2 class="subtitle has-text-centered">
-          GEM supports a wide range of subsurface imaging tasks, including structural and stratigraphic interpretation (e.g., faults, horizons, unconformities, relative geological time), geobody segmentation (e.g., channels, salt bodies), and physical property modeling (e.g., impedance, gamma ray, lithology). By conditioning on diverse human prompts—such as well logs, structural or stratigraphic sketches, and masks—GEM generates geologically coherent 3D results with support for expert interaction and iterative refinement.
-        </h2>
-      </div>
-    </div>
-  </section>
-
-  <!-- Abstract -->
-  <section class="section hero is-light">
-    <div class="container is-max-widescreen">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
-            <p>
-              Understanding Earth's subsurface is critical for energy transition, natural hazard mitigation, and planetary science. Yet subsurface analysis remains fragmented, with separate models required for structural interpretation, stratigraphic analysis, geobody segmentation, and property modeling—each tightly coupled to specific data distributions and task formulations. We introduce the Geological Everything Model 3D (GEM), a unified generative architecture that reformulates all these tasks as prompt-conditioned inference along latent structural frameworks derived from subsurface imaging. This formulation moves beyond task-specific models by enabling a shared inference mechanism, where GEM propagates human-provided prompts—such as well logs, masks, or structural sketches—along inferred structural frameworks to produce geologically coherent outputs. Through this mechanism, GEM achieves zero-shot generalization across tasks with heterogeneous prompt types, without retraining for new tasks or data sources. This capability emerges from a two-stage training process that combines self-supervised representation learning on large-scale field seismic data with adversarial fine-tuning using mixed prompts and labels across diverse subsurface tasks. GEM demonstrates broad applicability across surveys and tasks, including Martian radar stratigraphy analysis, structural interpretation in subduction zones, full seismic stratigraphic interpretation, geobody delineation, and property modeling. By bridging expert knowledge with generative reasoning in a structurally aware manner, GEM lays the foundation for scalable, human-in-the-loop geophysical AI—transitioning from fragmented pipelines to a vertically integrated, promptable reasoning system.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-2 has-text-centered">All by the single model of GEM</h2>
-  </div>
- </section>
-  
-  <!-- Structural Interpretation & Geobody Segmentation Videos -->
-  <style>
-    .results-row {
-      display: flex;
-      gap: 1rem;
-    }
-    .results-row .item {
-      flex: 1;
-      box-sizing: border-box;
-    }
-    .results-row video {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-  </style>
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <h2 class="title is-3">Structural Interpretation &amp; Geobody Segmentation</h2>
-        <div class="results-row">
-          <div class="item">
-            <video autoplay controls muted loop>
-              <source src="static/videos/RomneyChannels.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video autoplay controls muted loop>
-              <source src="static/videos/F3Geobodies.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video autoplay controls muted loop>
-              <source src="static/videos/BaiyunDeepFaults.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Property Modeling Videos -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <h2 class="title is-3">Property Modeling</h2>
-        <div class="results-row">
-          <div class="item">
-            <video autoplay controls muted loop>
-              <source src="static/videos/DelftImpedance.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video autoplay controls muted loop>
-              <source src="static/videos/F3Gamma.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video autoplay controls muted loop>
-              <source src="static/videos/PoseidonDTCO.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-<section class="hero is-light">
-  <!-- Complex Faults & Geobody Image Carousels -->
-  <div class="container">
-    <div class="columns">
-      <div class="column is-half">
-        <section class="hero is-small">
-          <div class="hero-body">
-            <div class="container">
-              <h2 class="title is-3">Complex Fault Results</h2>
-              <div id="results-carousel-fault" class="carousel results-carousel">
-                <div class="item">
-                  <img src="static/images/fault1.png" alt="Hikurangi Fault"/>
-                  <h2 class="subtitle has-text-centered">Hikurangi Fault</h2>
-                </div>
-                <div class="item">
-                  <img src="static/images/fault2.png" alt="Baiyun Fault"/>
-                  <h2 class="subtitle has-text-centered">Baiyun Fault</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-      <div class="column is-half">
-        <section class="hero is-small">
-          <div class="hero-body">
-            <div class="container">
-              <h2 class="title is-3">Geobody Results</h2>
-              <div id="results-carousel-geobody" class="carousel results-carousel">
-                <div class="item">
-                  <img src="static/images/geobody1.png" alt="Parihaka Channel"/>
-                  <h2 class="subtitle has-text-centered">Parihaka Channel</h2>
-                </div>
-                <div class="item">
-                  <img src="static/images/geobody2.png" alt="F3 Slope, stratum and salt"/>
-                  <h2 class="subtitle has-text-centered">F3 Slope, stratum and salt</h2>
-                </div>
-                <div class="item">
-                  <img src="static/images/geobody3.png" alt="Fort Worth Basin Karst"/>
-                  <h2 class="subtitle has-text-centered">Fort Worth Basin Karst</h2>
-                </div>
-                <div class="item">
-                  <img src="static/images/geobody4.png" alt="Kora Volcanic"/>
-                  <h2 class="subtitle has-text-centered">Kora Volcanic</h2>
-                </div>
-                <div class="item">
-                  <img src="static/images/geobody5.png" alt="Hikurangi Sediment Lens and Seamount"/>
-                  <h2 class="subtitle has-text-centered">Hikurangi Sediment Lens and Seamount</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="columns">
-      <div class="column is-half">
-        <section class="hero is-small">
-          <div class="hero-body">
-            <div class="container">
-              <h2 class="title is-3">Stratigraphic Results</h2>
-              <div id="results-carousel-rgt" class="carousel results-carousel">
-                <div class="item">
-                  <img src="static/images/rgt2.png" alt="Delft Unconformity and RGT"/>
-                  <h2 class="subtitle has-text-centered">Delft Unconformity and RGT</h2>
-                </div>
-                <div class="item">
-                  <img src="static/images/rgt1.png" alt="Poseidon Unconformity and RGT"/>
-                  <h2 class="subtitle has-text-centered">Poseidon Unconformity and RGT</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-      <div class="column is-half">
-        <section class="hero is-small">
-          <div class="hero-body">
-            <div class="container">
-              <h2 class="title is-3">Modeling Results</h2>
-              <div id="results-carousel-perp" class="carousel results-carousel">
-                <div class="item">
-                  <img src="static/images/perp1.png" alt="Teapot Doom Impedance"/>
-                  <h2 class="subtitle has-text-centered">Teapot Doom Impedance</h2>
-                </div>
-                <div class="item">
-                  <img src="static/images/perp2.png" alt="F3 Impedance"/>
-                  <h2 class="subtitle has-text-centered">F3 Impedance</h2>
-                </div>
-                <div class="item">
-                  <img src="static/images/perp3.png" alt="F3 GammaRay"/>
-                  <h2 class="subtitle has-text-centered">F3 GammaRay</h2>
-                </div>
-                <div class="item">
-                  <img src="static/images/perp4.png" alt="F3 Lithology"/>
-                  <h2 class="subtitle has-text-centered">F3 Lithology</h2>
-                </div>
-                <div class="item">
-                  <img src="static/images/perp5.png" alt="Delft Impedance and GammaRay"/>
-                  <h2 class="subtitle has-text-centered">Delft Impedance and GammaRay</h2>
-                </div>
-                <div class="item">
-                  <img src="static/images/perp6.png" alt="Poseidon DTCO"/>
-                  <h2 class="subtitle has-text-centered">Poseidon DTCO</h2>
-                </div>
-                <div class="item">
-                  <img src="static/images/perp7.png" alt="Poseidon GammaRay"/>
-                  <h2 class="subtitle has-text-centered">Poseidon GammaRay</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
-
-  <!-- Martian Radar Data Results -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <div class="columns is-centered">
-          <div class="column" style="width: 96.5%; max-width: 96.5%;">
-            <h2 class="title is-3">Martian Radar Data Results</h2>
-            <div id="results-carousel-mars" class="carousel results-carousel">
-              <div class="item">
-                <img src="static/images/mars.png" alt="Ice Reflector in Martian SHARAD Data"/>
-                <h2 class="subtitle has-text-centered">
-                  Ice Reflector in Martian SHARAD Data
-                </h2>
-              </div>
-              <div class="item">
-                <img src="static/images/mars2.png" alt="Martian Internal Reflectors"/>
-                <h2 class="subtitle has-text-centered">
-                  (a) Surface reflector (b) Internal reflector 1 (c) Internal reflector 2 (d) Internal reflector 3 (e) Internal reflector 4 (f) Basal reflector
-                </h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="section">
-    <div class="container">
-      <h2 class="title is-2">More Results...</h2>
-    </div>
-  </section>
-
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><nav class="shell nav" aria-label="Main navigation">
+  <a class="brand" href="#"><span class="brand-mark" aria-hidden="true">◈</span> GEM <span>3D</span></a>
+  <div class="nav-links"><a href="#overview">Overview</a><a href="#demos">Demos</a><a href="#results">Results</a><a href="#paper" class="nav-paper">Read paper <span aria-hidden="true">↗</span></a></div>
+</nav></header>
+<main id="main">
+<section class="hero shell">
+  <div class="eyebrow"><span class="status-dot"></span> Geological intelligence · Interactive 3D inference</div>
+  <div class="hero-heading"><h1>Geological<br>Everything Model <span>3D</span></h1><div class="hero-intro"><p class="subtitle">Unified Interactive Inference through Target-Conditioned Representations</p><p class="hero-description">One model connects imaging data with local interpretations and measurements to infer structures, geological bodies, and physical properties.</p></div></div>
+  <div class="hero-actions"><a class="button primary" href="static/papers/GEM_English_NCS.pdf" target="_blank" rel="noopener">Read the latest manuscript <span aria-hidden="true">↗</span></a><a class="button secondary" href="#demos"><span aria-hidden="true">▷</span> Watch demonstrations</a><a class="text-link" href="https://github.com/douyimin/GEM" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></div>
+  <figure class="hero-figure"><img src="static/images/geobody1.png" alt="Parihaka channel interpretation: sparse colored local masks on seismic slices at left and reconstructed three-dimensional channel bodies at right" width="1421" height="384" fetchpriority="high"><figcaption><span>Local conditions <span aria-hidden="true">→</span> Three-dimensional interpretation</span><span>Parihaka channel systems</span></figcaption></figure>
+  <div class="capabilities"><div><span>01</span> Structural & stratigraphic interpretation</div><div><span>02</span> Geobody identification</div><div><span>03</span> Physical property modeling</div></div>
 </section>
-
-
-
-
-
-  <!-- BibTeX -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>
-@article{dou2025gem,
-        title={Geological Everything Model 3D: A Promptable Foundation Model for Unified and Zero-Shot Subsurface Understanding},
-        author={Yimin Dou, Xinming Wu, Nathan L Bangs, Harpreet Singh Sethi, Jintao Li, Hang Gao and Zhixiang Guo},
-        journal={arXiv preprint arXiv:2507.00419},
-        year={2025}
-}
-      </code></pre>
-    </div>
-  </section>
-
-  <!-- Footer -->
-
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-
-
+<section class="authors-section shell" aria-label="Authors and affiliations">
+  <p class="authors">Yimin Dou<sup>1</sup> · <a href="https://cig.ustc.edu.cn/main.htm" target="_blank" rel="noopener">Xinming Wu</a><sup>1,*</sup> · Nathan L. Bangs<sup>2</sup> · Harpreet Singh Sethi<sup>3</sup> · Jintao Li<sup>4</sup> · Hang Gao<sup>5</sup> · Zhixiang Guo<sup>1</sup></p>
+  <details class="affiliations"><summary>Author affiliations & correspondence</summary><ol><li>School of Earth and Space Sciences, University of Science and Technology of China, China</li><li>Institute for Geophysics, University of Texas at Austin, USA</li><li>NVIDIA, USA</li><li>State Key Laboratory of Ocean Sensing, Ocean College, Zhejiang University, China</li><li>National Data Center for the Comprehensive Nuclear-Test-Ban Treaty, China</li></ol><p>* Corresponding author: <a href="mailto:xinmwu@ustc.edu.cn">xinmwu@ustc.edu.cn</a></p></details>
+</section>
+<section id="overview" class="section light-section"><div class="shell overview-grid">
+  <div><div class="eyebrow">The approach</div><h2>Specify a target.<br>Infer in 3D.<br><span class="muted-heading">Revise with insight.</span></h2></div>
+  <div class="overview-copy"><p class="lead">Images provide spatial context. Local conditions supply the identity, geometry, or value of the target.</p><p>GEM brings these inputs together from the start of three-dimensional feature extraction. Interpretation lines, membership masks, relative stratigraphic coordinates, and well logs guide a shared backbone and output head.</p><p>Across the reported applications, model weights remain fixed. Interpreters can add, replace, or withdraw conditions and revisit earlier results as their understanding develops.</p><details class="abstract"><summary>Read the full abstract</summary><p>Scientific imaging requires the inference of spatial objects, geometric boundaries, and continuous properties from limited observations. Some tasks in medical imaging, remote sensing, and subsurface imaging share the challenges of missing observations and target ambiguity: high-dimensional data and large-scale training do not necessarily supply all the information needed to determine a target. Local annotations, domain interpretations, and independent measurements can provide additional target constraints. An important question is how these heterogeneous conditions can form representations jointly with observations, enabling one model to infer different targets and revise its predictions. We propose Geological Everything Model 3D (GEM), which explores unified three-dimensional interactive inference through target-conditioned representations. Object membership, geometric relationships, and measured values are encoded as local conditions and supplied with observations to a three-dimensional backbone, allowing conditions to participate in feature extraction from the input stage. Multitask joint training brings discrete object recognition and continuous field estimation into a common conditional prediction interface. An interactive workflow allows conditions to be accumulated, revised, and revisited. Adding, replacing, or withdrawing conditions updates candidate results while retaining valid historical constraints, enabling continued inference with fixed model parameters. Subsurface imaging serves as the principal validation setting, where complex three-dimensional structures, diverse targets, and sparse constraints provide a challenging test. Synthetic benchmarks, field surveys, and blind-well evaluations demonstrate applications to fault and horizon interpretation, geobody identification, stratigraphic coordinates, and physical property estimation. GEM outperforms the compared baselines on field fault slices and some tasks constrained by well logs, whereas specialized models retain advantages on some synthetic tasks, indicating that the benefits depend on the setting. A Martian radar example provides exploratory evidence for application across imaging modalities. These results support the feasibility of the approach for subsurface interpretation and modeling. This work provides an approach to unified modeling and interactive revision for heterogeneous target inference under insufficient observations, with potential extensions to medical imaging and other remote-sensing tasks.</p></details></div>
+  <div class="workflow"><div><span class="step">01 / Observe</span><h3>Imaging volume</h3><p>Seismic or radar observations supply three-dimensional spatial cues.</p></div><div><span class="step">02 / Condition</span><h3>Local information</h3><p>Interpretations and measurements specify the current target.</p></div><div><span class="step">03 / Infer & revise</span><h3>Shared 3D model</h3><p>Inspect predictions and update conditions while retaining valid constraints.</p></div></div>
+</div></section>
+<section id="demos" class="section shell">
+  <div class="section-heading"><div><div class="eyebrow">See GEM in use</div><h2>Interactive demonstrations</h2></div><p>Six narrated workflows, from seismic structures to Martian radar layers. English voice · Chinese & English subtitles.</p></div>
+  <div class="demo-toolbar"><div class="filters" role="group" aria-label="Filter demonstrations"><button type="button" class="filter active" data-filter="all" aria-pressed="true">All demos <span>6</span></button><button type="button" class="filter" data-filter="structure" aria-pressed="false">Structures</button><button type="button" class="filter" data-filter="geobody" aria-pressed="false">Geobodies</button><button type="button" class="filter" data-filter="planetary" aria-pressed="false">Planetary</button></div><span class="play-note">Select play to hear narration</span></div>
+  <p id="filter-status" class="sr-only" aria-live="polite">Showing all 6 demonstrations</p>
+  <div class="demo-grid"><article class="demo-card" data-category="structure">
+  <div class="video-wrap"><video controls playsinline preload="none" poster="static/images/posters/NZ3D_faultbsr_2x_ENvoice.jpg" aria-label="Faults & bottom-simulating reflector">
+      <source src="static/videos/NZ3D_faultbsr_2x_ENvoice.mp4" type="video/mp4">
+      Your browser does not support embedded video. <a href="static/videos/NZ3D_faultbsr_2x_ENvoice.mp4">Download the video</a>.
+    </video></div>
+  <div class="card-body"><div class="card-meta"><span>01 / NZ3D · Hikurangi</span><span>3:17</span></div>
+  <h3>Faults & bottom-simulating reflector</h3><p>Trace local interfaces, extend them in 3D, and refine fault and BSR interpretations.</p><a class="text-link" href="static/videos/NZ3D_faultbsr_2x_ENvoice.mp4" download>Download video <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="demo-card" data-category="structure geobody">
+  <div class="video-wrap"><video controls playsinline preload="none" poster="static/images/posters/F3_saltfaultstratumslop_2x_ENvoice.jpg" aria-label="Salt, faults, strata & slope">
+      <source src="static/videos/F3_saltfaultstratumslop_2x_ENvoice.mp4" type="video/mp4">
+      Your browser does not support embedded video. <a href="static/videos/F3_saltfaultstratumslop_2x_ENvoice.mp4">Download the video</a>.
+    </video></div>
+  <div class="card-body"><div class="card-meta"><span>02 / Netherlands F3</span><span>1:28</span></div>
+  <h3>Salt, faults, strata & slope</h3><p>Switch between structural interfaces and geological bodies within the same seismic volume.</p><a class="text-link" href="static/videos/F3_saltfaultstratumslop_2x_ENvoice.mp4" download>Download video <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="demo-card" data-category="geobody">
+  <div class="video-wrap"><video controls playsinline preload="none" poster="static/images/posters/parihaka_channel_2x_ENvoice.jpg" aria-label="Branching channel systems">
+      <source src="static/videos/parihaka_channel_2x_ENvoice.mp4" type="video/mp4">
+      Your browser does not support embedded video. <a href="static/videos/parihaka_channel_2x_ENvoice.mp4">Download the video</a>.
+    </video></div>
+  <div class="card-body"><div class="card-meta"><span>03 / Parihaka</span><span>1:07</span></div>
+  <h3>Branching channel systems</h3><p>Use local membership masks to identify channels and revise their three-dimensional extent.</p><a class="text-link" href="static/videos/parihaka_channel_2x_ENvoice.mp4" download>Download video <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="demo-card" data-category="geobody">
+  <div class="video-wrap"><video controls playsinline preload="none" poster="static/images/posters/Romney_channel_2x_ENvoice.jpg" aria-label="Channel interpretation">
+      <source src="static/videos/Romney_channel_2x_ENvoice.mp4" type="video/mp4">
+      Your browser does not support embedded video. <a href="static/videos/Romney_channel_2x_ENvoice.mp4">Download the video</a>.
+    </video></div>
+  <div class="card-body"><div class="card-meta"><span>04 / Romney</span><span>0:32</span></div>
+  <h3>Channel interpretation</h3><p>Specify a channel on a local section and inspect its spatial continuation through the volume.</p><a class="text-link" href="static/videos/Romney_channel_2x_ENvoice.mp4" download>Download video <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="demo-card" data-category="geobody">
+  <div class="video-wrap"><video controls playsinline preload="none" poster="static/images/posters/nlog_salt_2x_ENvoice.jpg" aria-label="Salt-body delineation">
+      <source src="static/videos/nlog_salt_2x_ENvoice.mp4" type="video/mp4">
+      Your browser does not support embedded video. <a href="static/videos/nlog_salt_2x_ENvoice.mp4">Download the video</a>.
+    </video></div>
+  <div class="card-body"><div class="card-meta"><span>05 / NLOG</span><span>0:18</span></div>
+  <h3>Salt-body delineation</h3><p>Outline a salt body locally to guide volumetric segmentation.</p><a class="text-link" href="static/videos/nlog_salt_2x_ENvoice.mp4" download>Download video <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="demo-card" data-category="planetary">
+  <div class="video-wrap"><video controls playsinline preload="none" poster="static/images/posters/mars_icelayer_2x_ENvoice.jpg" aria-label="Martian ice-layer interfaces">
+      <source src="static/videos/mars_icelayer_2x_ENvoice.mp4" type="video/mp4">
+      Your browser does not support embedded video. <a href="static/videos/mars_icelayer_2x_ENvoice.mp4">Download the video</a>.
+    </video></div>
+  <div class="card-body"><div class="card-meta"><span>06 / Mars · SHARAD radar</span><span>2:30</span></div>
+  <h3>Martian ice-layer interfaces</h3><p>Explore reflection-interface interpretation in planetary radar imaging.</p><a class="text-link" href="static/videos/mars_icelayer_2x_ENvoice.mp4" download>Download video <span aria-hidden="true">↗</span></a></div>
+</article></div>
+</section>
+<section id="properties" class="section property-section"><div class="shell">
+  <div class="section-heading"><div><div class="eyebrow">From measurements to volumes</div><h2>Property modeling</h2></div><p>Well-log conditions anchor local values; seismic data provide spatial context for the surrounding property field.</p></div>
+  <div class="property-grid"><article class="demo-card"><div class="video-wrap"><video controls playsinline preload="none" poster="static/images/posters/DelftImpedance-cropped.jpg" aria-label="Acoustic impedance">
+      <source src="static/videos/DelftImpedance-cropped.mp4" type="video/mp4">
+      Your browser does not support embedded video. <a href="static/videos/DelftImpedance-cropped.mp4">Download the video</a>.
+    </video></div><div class="card-body"><span class="card-meta">Delft</span><h3>Acoustic impedance</h3><p>Well-log values constrain a continuous property field within the seismic volume.</p><a class="text-link" href="static/videos/DelftImpedance-cropped.mp4" download>Download video <span aria-hidden="true">↗</span></a></div></article>
+<article class="demo-card"><div class="video-wrap"><video controls playsinline preload="none" poster="static/images/posters/F3Gamma-cropped.jpg" aria-label="Natural gamma ray">
+      <source src="static/videos/F3Gamma-cropped.mp4" type="video/mp4">
+      Your browser does not support embedded video. <a href="static/videos/F3Gamma-cropped.mp4">Download the video</a>.
+    </video></div><div class="card-body"><span class="card-meta">Netherlands F3</span><h3>Natural gamma ray</h3><p>Estimate spatial property variation from seismic context and local well measurements.</p><a class="text-link" href="static/videos/F3Gamma-cropped.mp4" download>Download video <span aria-hidden="true">↗</span></a></div></article>
+<article class="demo-card"><div class="video-wrap"><video controls playsinline preload="none" poster="static/images/posters/PoseidonDTCO-cropped.jpg" aria-label="Sonic transit time (DTCO)">
+      <source src="static/videos/PoseidonDTCO-cropped.mp4" type="video/mp4">
+      Your browser does not support embedded video. <a href="static/videos/PoseidonDTCO-cropped.mp4">Download the video</a>.
+    </video></div><div class="card-body"><span class="card-meta">Poseidon</span><h3>Sonic transit time (DTCO)</h3><p>Extend local sonic-log constraints through the surrounding three-dimensional image.</p><a class="text-link" href="static/videos/PoseidonDTCO-cropped.mp4" download>Download video <span aria-hidden="true">↗</span></a></div></article></div>
+</div></section>
+<section id="results" class="section light-section"><div class="shell">
+  <div class="section-heading"><div><div class="eyebrow">Evidence from the manuscript</div><h2>Research results</h2></div><p>Synthetic benchmarks, field interpretations, and blind-well evaluations. Open any figure to inspect the original image.</p></div>
+  <div class="evidence"><div><strong>0.6268</strong><span>Field fault IoU</span><p>20 expert-annotated slices from Hikurangi and Baiyun.</p></div><div><strong>0.7213</strong><span>Field channel IoU</span><p>30 annotated field slices from Parihaka and Romney.</p></div><div><strong>14.36<small>%</small></strong><span>Lower blind-well MAE</span><p>F3 F02-1 acoustic impedance, relative to the best compared baseline.</p></div></div>
+  <p class="evaluation-note">Performance depends on the setting: specialized models retain advantages on some synthetic tasks. Comparisons use the adaptation workflows described in the manuscript; the Martian example is exploratory.</p>
+  <div class="figure-grid"><a class="figure-card" href="static/images/paper/1.jpg" target="_blank" rel="noopener"><div class="figure-thumb"><img src="static/images/paper/1.jpg" loading="lazy" alt="Problem & framework — manuscript figure 1" width="1000" height="850"></div><div class="figure-caption"><span class="card-meta">Figure 1 <span aria-hidden="true">↗</span></span><h3>Problem & framework</h3><p>Local knowledge and measurements supply target information alongside three-dimensional observations.</p></div></a>
+<a class="figure-card" href="static/images/paper/2.jpg" target="_blank" rel="noopener"><div class="figure-thumb"><img src="static/images/paper/2.jpg" loading="lazy" alt="Target-conditioned representations — manuscript figure 2" width="1000" height="850"></div><div class="figure-caption"><span class="card-meta">Figure 2 <span aria-hidden="true">↗</span></span><h3>Target-conditioned representations</h3><p>Shared features respond to different local conditions. Feature-projection colors are not confidence scores.</p></div></a>
+<a class="figure-card" href="static/images/paper/3.jpg" target="_blank" rel="noopener"><div class="figure-thumb"><img src="static/images/paper/3.jpg" loading="lazy" alt="Structures & stratigraphy — manuscript figure 3" width="1000" height="850"></div><div class="figure-caption"><span class="card-meta">Figure 3 <span aria-hidden="true">↗</span></span><h3>Structures & stratigraphy</h3><p>Faults, reflection interfaces, Martian radar layers, unconformities, and relative geological time.</p></div></a>
+<a class="figure-card" href="static/images/paper/4.jpg" target="_blank" rel="noopener"><div class="figure-thumb"><img src="static/images/paper/4.jpg" loading="lazy" alt="Geobody identification — manuscript figure 4" width="1000" height="850"></div><div class="figure-caption"><span class="card-meta">Figure 4 <span aria-hidden="true">↗</span></span><h3>Geobody identification</h3><p>Channels, salt, karst, volcanic units, and sediment bodies selected through local membership masks.</p></div></a>
+<a class="figure-card" href="static/images/paper/5.jpg" target="_blank" rel="noopener"><div class="figure-thumb"><img src="static/images/paper/5.jpg" loading="lazy" alt="Well-constrained property modeling — manuscript figure 5" width="1000" height="850"></div><div class="figure-caption"><span class="card-meta">Figure 5 <span aria-hidden="true">↗</span></span><h3>Well-constrained property modeling</h3><p>Synthetic full-field evaluation and field predictions assessed at held-out blind wells.</p></div></a>
+<a class="figure-card" href="static/images/paper/s4.jpg" target="_blank" rel="noopener"><div class="figure-thumb"><img src="static/images/paper/s4.jpg" loading="lazy" alt="Interactive revision — manuscript figure S4" width="1000" height="850"></div><div class="figure-caption"><span class="card-meta">Figure S4 <span aria-hidden="true">↗</span></span><h3>Interactive revision</h3><p>Accumulate, revise, or withdraw conditions while keeping valid historical constraints.</p></div></a></div>
+</div></section>
+<section id="paper" class="section shell paper-section"><div class="paper-intro"><div class="eyebrow">Manuscript & resources</div><h2>Explore the research.</h2><p class="paper-title">Geological Everything Model 3D: Unified Interactive Inference through Target-Conditioned Representations</p><p class="resource-note">The latest manuscript includes Supplementary Information. The arXiv link points to the earlier 2025 preprint.</p><div class="paper-links"><a class="button primary" href="static/papers/GEM_English_NCS.pdf" target="_blank" rel="noopener">Latest manuscript · PDF <span aria-hidden="true">↗</span></a><a class="button secondary" href="https://arxiv.org/abs/2507.00419" target="_blank" rel="noopener">Earlier arXiv preprint <span aria-hidden="true">↗</span></a></div></div><div class="citation"><div class="citation-heading"><h3>Cite the arXiv preprint</h3><button id="copy-citation" type="button">Copy BibTeX</button></div><pre><code id="citation-text">@article{dou2025gem,
+  title={Geological Everything Model 3D:
+    A Promptable Foundation Model for Unified
+    and Zero-Shot Subsurface Understanding},
+  author={Dou, Yimin and Wu, Xinming and
+    Bangs, Nathan L. and Sethi, Harpreet Singh and
+    Li, Jintao and Gao, Hang and Guo, Zhixiang},
+  journal={arXiv preprint arXiv:2507.00419},
+  year={2025}
+}</code></pre><span id="copy-status" class="copy-status" role="status"></span></div></section>
+</main>
+<footer class="site-footer"><div class="shell"><a class="brand" href="#">◈ GEM <span>3D</span></a><p>Geological Everything Model · Updated October 2026</p><a href="https://github.com/douyimin/GEM" target="_blank" rel="noopener">Project repository ↗</a></div><p class="credits shell">Website licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Original page based on the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic Project Page Template</a> and <a href="https://nerfies.github.io/">Nerfies</a>.</p></footer>
 </body>
 </html>
