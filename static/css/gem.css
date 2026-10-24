@@ -25,3 +25,34 @@
 .brand{display:inline-flex;align-items:center;gap:8px}
 .brand-icon{width:36px;height:36px;object-fit:contain;flex:none}
 @media(max-width:720px){.brand{gap:6px}.brand-icon{width:30px;height:30px}}
+
+/* Readable text sizes without enlarging the display headings. */
+body{font-size:1.0625rem}
+.nav-links,.button,.text-link,.filter{font-size:1rem}
+.hero-description,.overview-copy,.abstract,.section-heading>p{font-size:1.0625rem;line-height:1.75}
+.workflow p,.card-body p,.resource-note,.figure-caption p{font-size:1rem;line-height:1.75}
+.hero-figure figcaption,.capabilities,.affiliations{font-size:.9375rem;line-height:1.7}
+.authors{font-size:1rem;line-height:1.85}
+.authors sup{font-size:.75rem}
+.eyebrow,.workflow .step,.card-meta,.play-note,.card-body .text-link,.citation button,.copy-status{font-size:.875rem}
+.eyebrow{letter-spacing:.12em}
+.card-meta{letter-spacing:.04em;flex-wrap:wrap}
+.capabilities span,.filter span{font-size:.8125rem}
+.result-group h4{font-size:1.0625rem;line-height:1.55}
+.citation-heading{flex-wrap:wrap}
+.citation-heading h3{font-size:1rem}
+.citation pre{font-size:.875rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.site-footer{font-size:.9375rem}
+.site-footer .credits{font-size:.8125rem;line-height:1.8}
+.hero-figure figcaption{flex-wrap:wrap}
+@media(max-width:720px){
+  .nav{flex-wrap:wrap}
+  .nav-links{font-size:.875rem;gap:14px}
+  .button,.text-link,.filter{font-size:.9375rem}
+  .hero-description,.overview-copy,.abstract,.section-heading>p{font-size:1rem}
+  .hero-figure figcaption,.affiliations,.eyebrow,.workflow .step,.card-meta{font-size:.875rem}
+  .authors,.capabilities,.result-group h4{font-size:1rem}
+  .filter{min-height:44px}
+  .site-footer .credits{font-size:.8125rem}
+}
+@media(max-width:360px){.nav{padding-block:10px}.nav-links{width:100%;justify-content:space-between}section[id]{scroll-margin-top:120px}}
