@@ -82,7 +82,7 @@ document.querySelectorAll('.result-group').forEach((group, groupIndex) => {
     if (running) autoplayTimer = setTimeout(() => {
       go(current + 1);
       scheduleAutoplay();
-    }, 5000);
+    }, 2000);
   };
 
   const render = () => {
