@@ -56,3 +56,32 @@ body{font-size:1.0625rem}
   .site-footer .credits{font-size:.8125rem}
 }
 @media(max-width:360px){.nav{padding-block:10px}.nav-links{width:100%;justify-content:space-between}section[id]{scroll-margin-top:120px}}
+
+/* Independent carousels for each scientific result category. */
+.results-carousels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 28px}
+.results-carousels .result-group{margin:0;min-width:0}
+.results-carousels .result-group:last-child{grid-column:1/-1}
+.results-carousels .result-group>h3{font-size:1.35rem;line-height:1.35;margin-bottom:18px}
+.result-group .figure-grid{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;border-radius:var(--radius);scrollbar-width:thin}
+.result-group.carousel-ready .figure-grid{scrollbar-width:none}
+.result-group.carousel-ready .figure-grid::-webkit-scrollbar{display:none}
+.result-group .figure-card{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;box-shadow:none}
+.result-group .figure-caption{min-height:88px}
+.result-group:last-child .figure-caption{min-height:68px}
+.carousel-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
+.carousel-arrow{display:grid;place-items:center;flex:none;width:44px;height:44px;border:1px solid #9eb5bf;border-radius:50%;background:var(--surface);color:var(--accent);font-size:1.25rem;cursor:pointer}
+.carousel-arrow:hover{background:#dce8eb;border-color:var(--accent)}
+.carousel-dots{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0;margin-inline:auto}
+.carousel-dot{display:grid;place-items:center;width:32px;height:44px;padding:0;border:0;background:transparent;cursor:pointer}
+.carousel-dot::after{content:"";width:8px;height:8px;border:1px solid #78969f;border-radius:50%;background:transparent;transition:background .2s,width .2s}
+.carousel-dot[aria-pressed="true"]::after{width:22px;border-radius:5px;background:var(--accent);border-color:var(--accent)}
+.carousel-dot:hover::after{background:#a1c4c0}
+.carousel-count{font-size:.875rem;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+@media(max-width:720px){
+  .results-carousels{grid-template-columns:1fr;gap:36px}
+  .results-carousels .result-group:last-child{grid-column:auto}
+  .result-group .figure-caption,.result-group:last-child .figure-caption{min-height:80px}
+  .carousel-controls{gap:8px}
+  .carousel-dot{width:28px}
+}
+@media(max-width:360px){.carousel-dot{width:23px}.carousel-arrow{width:40px;height:40px}.carousel-controls{gap:5px}}
