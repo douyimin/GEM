@@ -20,3 +20,8 @@
 .hero-figure>img{background:#f8fafb}.hero-figure{box-shadow:0 8px 30px rgba(34,56,68,.035)}
 .demo-card,.figure-card,.citation{box-shadow:0 3px 14px rgba(34,56,68,.025)}
 .light-section{border-block:1px solid #d8e2e6}
+
+/* Use the project icon consistently in both brand links. */
+.brand{display:inline-flex;align-items:center;gap:8px}
+.brand-icon{width:36px;height:36px;object-fit:contain;flex:none}
+@media(max-width:720px){.brand{gap:6px}.brand-icon{width:30px;height:30px}}
