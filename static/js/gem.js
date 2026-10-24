@@ -62,6 +62,28 @@ document.querySelectorAll('.result-group').forEach((group, groupIndex) => {
   status.setAttribute('aria-atomic', 'true');
   let current = 0;
   let settleTimer;
+  let autoplayTimer;
+  let inView = false;
+  let hovered = false;
+  let touching = false;
+  const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+  let autoplayEnabled = true;
+  const playback = document.createElement('button');
+  playback.type = 'button';
+  playback.className = 'carousel-playback';
+  playback.setAttribute('aria-controls', track.id);
+
+  const scheduleAutoplay = () => {
+    clearTimeout(autoplayTimer);
+    const focused = group.contains(document.activeElement) && document.activeElement !== playback;
+    const running = autoplayEnabled && inView && !document.hidden && !hovered && !touching && !focused;
+    status.setAttribute('aria-live', running ? 'off' : 'polite');
+    playback.textContent = autoplayEnabled ? 'Pause slideshow' : 'Play slideshow';
+    if (running) autoplayTimer = setTimeout(() => {
+      go(current + 1);
+      scheduleAutoplay();
+    }, 5000);
+  };
 
   const render = () => {
     slides.forEach((slide, i) => { slide.tabIndex = i === current ? 0 : -1; });
@@ -75,7 +97,7 @@ document.querySelectorAll('.result-group').forEach((group, groupIndex) => {
     render();
     track.scrollTo({
       left: current * track.clientWidth,
-      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'
+      behavior: motionPreference.matches ? 'instant' : 'smooth'
     });
   };
   const arrow = (label, symbol, change) => {
@@ -99,12 +121,33 @@ document.querySelectorAll('.result-group').forEach((group, groupIndex) => {
   });
   controls.append(arrow('Previous result', '←', -1), dots, status, arrow('Next result', '→', 1));
   group.append(controls);
+  group.append(playback);
   group.classList.add('carousel-ready');
+  playback.addEventListener('click', () => {
+    autoplayEnabled = !autoplayEnabled;
+    scheduleAutoplay();
+  });
+  group.addEventListener('pointerenter', event => {
+    if (event.pointerType === 'mouse') { hovered = true; scheduleAutoplay(); }
+  });
+  group.addEventListener('pointerleave', () => { hovered = false; scheduleAutoplay(); });
+  group.addEventListener('focusin', scheduleAutoplay);
+  group.addEventListener('focusout', () => queueMicrotask(scheduleAutoplay));
+  track.addEventListener('pointerdown', () => { touching = true; scheduleAutoplay(); });
+  window.addEventListener('pointerup', () => { if (touching) { touching = false; scheduleAutoplay(); } });
+  window.addEventListener('pointercancel', () => { touching = false; scheduleAutoplay(); });
+  document.addEventListener('visibilitychange', scheduleAutoplay);
+  new IntersectionObserver(entries => {
+    inView = entries[0].isIntersecting;
+    scheduleAutoplay();
+  }, { threshold: 0.15 }).observe(group);
   track.addEventListener('scroll', () => {
+    clearTimeout(autoplayTimer);
     clearTimeout(settleTimer);
     settleTimer = setTimeout(() => {
       current = Math.max(0, Math.min(slides.length - 1, Math.round(track.scrollLeft / track.clientWidth)));
       render();
+      scheduleAutoplay();
     }, 150);
   }, { passive: true });
   group.addEventListener('keydown', event => {
@@ -120,4 +163,5 @@ document.querySelectorAll('.result-group').forEach((group, groupIndex) => {
     track.scrollTo({ left: current * track.clientWidth, behavior: 'instant' });
   }).observe(track);
   render();
+  scheduleAutoplay();
 });

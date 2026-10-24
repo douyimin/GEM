@@ -85,3 +85,6 @@ body{font-size:1.0625rem}
   .carousel-dot{width:28px}
 }
 @media(max-width:360px){.carousel-dot{width:23px}.carousel-arrow{width:40px;height:40px}.carousel-controls{gap:5px}}
+
+.carousel-playback{display:block;margin:8px 0 0 auto;min-height:44px;padding:6px 10px;border:0;border-radius:5px;background:transparent;color:var(--accent);font-size:.875rem;cursor:pointer}.carousel-playback:hover{background:#dce8eb}
+@media(max-width:400px){.carousel-dot{width:20px}}
