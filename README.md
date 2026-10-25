@@ -7,9 +7,6 @@ Project website: https://douyimin.github.io/GEM/
 This repository hosts the static research project page. Serve the repository
 with any static HTTP server; no build or package installation is required.
 
-```sh
-python -m http.server 8765
-```
 
 
 
